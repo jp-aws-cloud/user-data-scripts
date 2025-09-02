@@ -1,0 +1,9 @@
+#!/bin/bash # Log rotation and cleanup script
+set -euo pipefail # safer bash scripting    
+
+LOG_DIR="/var/log/myapp" # Directory containing logs
+DAYS=7 # Number of days to keep logs
+
+echo "Cleaning logs older than $DAYS days in $LOG_DIR" # Inform user
+find "$LOG_DIR" -type f -mtime +$DAYS -exec rm -f {} \; # Delete old logs
+echo "Log cleanup completed." # Completion message  
