@@ -1,0 +1,5 @@
+# List installed packages with versions
+dpkg-query -W -f='${binary:Package} ${Version}\n'
+
+# Count installed packages
+dpkg-query -W -f='${binary:Package} ${Version}\n' | wc -l
